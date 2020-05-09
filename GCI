@@ -1,0 +1,80 @@
+アプリケーション
+sublime
+iterm2
+
+サイト
+GITHUB 14zca
+リポジトリは、フォルダのようなもの
+リモートで複数人でバージョン管理をして開発するための機能を提供している
+
+###＜PULL>デスクトップにリポをクローンする　PULL
+
+
+ttskshz@MacBook-Pro ~ % cd Desktop　　＃デスクトップに移動
+ttskshz@MacBook-Pro Desktop % subl GCI　＃エディタでGCIを開く
+ttskshz@MacBook-Pro Desktop % git --version　＃gitのバージョン
+git version 2.24.2 (Apple Git-127)
+
+ttskshz@MacBook-Pro Desktop % cd ~/Desktop 　#~はHome Directoryのalias（ショートカットのようなもの）で，/Users/{USERNAME}/
+ttskshz@MacBook-Pro Desktop % git clone https://github.com/14zca/test.git　＃自分のgithub のリポジトリをpull
+Cloning into 'test'...
+remote: Enumerating objects: 3, done.
+remote: Counting objects: 100% (3/3), done.
+remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (3/3), done.
+
+ttskshz@MacBook-Pro Desktop % ls　　＃フォルダ内をリスト表示して、pullでできたクローンを確認する
+test
+
+ttskshz@MacBook-Pro Desktop % cd test
+ttskshz@MacBook-Pro test % ls  #testフォルダに移動して、中身を出す
+README.md
+ttskshz@MacBook-Pro test % ls -a　＃-a　は、隠しファイルも表示
+.		..		.git		README.md
+ttskshz@MacBook-Pro test % subl .git　　#エディタで中身を見てみる
+
+
+
+
+
+ブランチ：master / feature に分かれて、適切なfeatureの上で部分部分の作業をしていく。
+branchを切り替えることをcheckout
+マスターでは作業をしない！！！
+毎回機能ごとにbranchを立てる
+コミット＝最終的にレポに複数の変更を反映すること、gitでは中間に保管場所stageがある
+　→working deirectoryでの幾つもの変更は、中間のStaging areaに積み上げ（add）、最終的にcommitで反映される
+cf.
+https://datawokagaku.com/wp-content/uploads/2019/12/git_staging.png
+
+
+
+
+##今どんなブランチがあるか確認する ローカルリポ　にcdして、$git branch -> *がついているところにいる
+ttskshz@MacBook-Pro test % git branch
+* master
+
+
+#新しいブランチを作成し、update-readmeをいう名前をつける → また git branchで確認
+git checkout -b update-readme 
+
+#subl で readme.md を編集し、git stateを使うと、 commitへのステージングがされていない！とでます
+#git add ファイル名、をしてから、git status をして、stagingにあげることができる  -mは後からcommitをフォローできるコマンド
+#git add .  で、デイレクトりいかすべての変更をあげられる
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
